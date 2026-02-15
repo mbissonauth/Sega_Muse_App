@@ -1,0 +1,271 @@
+.toggle-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.toggle-btn.active {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.selected-display {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.next-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.next-btn:hover {
+  background-color: #0056b3;
+}
+
+.scale-container {
+  display: flex;
+  justify-content: center; /* spreads buttons evenly */
+  gap: 4px;
+  margin-top: 20px;
+}
+
+
+
+
+.rating-card {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 15px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;        /* buttons share available space */
+  min-width: 70px;
+  max-width: 90px;
+
+
+}
+
+.rating-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-color: #6c63ff;
+}
+
+.rating-card.active {
+  background: linear-gradient(135deg, #6c63ff, #8a7dff);
+  color: white;
+  border: none;
+  box-shadow: 0 10px 25px rgba(108,99,255,0.35);
+}
+
+.rating-number {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.rating-label {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* 🌈 Background */
+.page-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f4ff, #e8ecff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🧊 Glass card */
+.form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  width: 600px;          /* ✅ increased width */
+  max-width: 90%;        /* ✅ responsive for smaller screens */
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+
+/* 🎧 Title */
+.title {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* ❓ Question */
+.question {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* 🎵 Audio box */
+.audio-card {
+  background: #f9faff;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.audio-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Song header */
+.song-header {
+  margin-bottom: 10px;
+}
+
+.song-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.song-sub {
+  font-size: 12px;
+  color: #888;
+  display: block;
+}
+
+/* Audio */
+.audio-player {
+  width: 100%;
+}
+
+/* ➡️ Next button */
+.next-btn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #6c63ff, #8a7dff);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.answer-buttons {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 16px; /* space between buttons */
+  margin: 20px 0;
+}
+
+.answer-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #6c63ff, #8a7dff);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
+}
+
+.answer-btn.selected {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.35);
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #6c63ff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.song-item {
+  background: #f9faff;
+  border-radius: 18px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.song-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.song-item span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.audio-player {
+  width: 100%;
+  outline: none;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.page .image-question {
+  width: 100%;
+}
