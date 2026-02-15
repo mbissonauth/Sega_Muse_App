@@ -17,6 +17,7 @@ function Page6() {
 
         Your feedback helps improve AI-generated music research.
 
+        
         We appreciate your time!
         `;
 
