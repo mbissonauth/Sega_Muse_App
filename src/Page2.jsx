@@ -25,7 +25,7 @@ function Page2() {
 
     const { data, error } = await supabase
       .from('users')
-      .update({ q1: rating }) // save only number
+      .update({ enjoyable: rating }) // save only number
       .eq('id', userId);
 
     if (error) {

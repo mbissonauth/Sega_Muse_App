@@ -42,7 +42,7 @@ function Page5() {
         // Update Supabase
         const { data, error } = await supabase
             .from('users')
-            .update({ profession: selected })
+            .update({ human_created: selected })
             .eq('id', userId);
 
         if (error) {

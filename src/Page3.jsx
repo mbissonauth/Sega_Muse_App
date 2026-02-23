@@ -36,7 +36,7 @@ function Page3() {
       const { error } = await supabase
         .from("users")
         .update({ 
-          q2: answer,                  // save Yes/No answer
+          AI_generated: answer,                  // save Yes/No answer
           similar_song: reminderText    // save text field answer
         })
         .eq("id", userId);              // match the correct row

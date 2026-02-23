@@ -1,57 +1,86 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { supabase } from './createClient';
 import './Pages.css';
 
 function Page6() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const userId = location.state?.userId; // get user id from Home
 
-    // Retake survey
-    const handleRetake = () => {
-        navigate("/home");
-    };
+  if (!userId) {
+    console.error("No user ID passed to Page6!");
+  }
 
-    // Download document
-    const handleDownload = () => {
-        const content = `
-        Thank you for participating in our AI Music Survey.
+  const [selected, setSelected] = useState("");
 
-        Your feedback helps improve AI-generated music research.
+  const options = [
+    "Very similar",
+    "Somewhat similar",
+    "Neutral",
+    "Not very similar",
+    "Not similar at all"
+  ];
 
-        
-        We appreciate your time!
-        `;
+  const handleSelect = (option) => {
+    setSelected(option); // always highlight selected button
+  };
 
-        const blob = new Blob([content], { type: "text/plain" });
-        const url = window.URL.createObjectURL(blob);
+  const handleNext = async () => {
+    if (!userId) {
+      alert("No user ID found!");
+      return;
+    }
 
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "AI_Music_Survey_ThankYou.txt";
-        a.click();
+    if (!selected) {
+      alert("Please select an option before continuing!");
+      return;
+    }
 
-        window.URL.revokeObjectURL(url);
-    };
+    // Update Supabase
+    const { data, error } = await supabase
+      .from('users')
+      .update({ original: selected })
+      .eq('id', userId);
 
-    return (
-        <div className="app-container">
-            <div className="form-card">
-                <h2>🎉 Thank You for Completing the Survey!</h2>
-                <p className="thank-you-text">
-                    Your feedback helps us understand how people perceive AI-generated music.
-                    <br />
-                    We truly appreciate your time and thoughtful responses!
-                </p>
+    if (error) {
+      console.error("Error updating user:", error);
+      alert("Failed to save your answer. Try again.");
+      return;
+    }
 
-                <button className="next-btn" onClick={handleRetake}>
-                    Retake Survey
-                </button>
+    console.log("User updated:", data);
 
-                <button className="next-btn" onClick={handleDownload}>
-                    Download
-                </button>
-            </div>
+    // Navigate to Page2, pass userId along
+    navigate("/page7", { state: { userId } });
+  };
+
+  return (
+    <div className="app-container">
+      <div className="form-card">
+        <h2>Page 7</h2>
+        <p>How similar do you think the AI-generated music is to original Sega music?</p>
+
+        <div className="toggle-group">
+          {options.map((option) => (
+            <button
+              key={option}
+              className={`toggle-btn ${selected === option ? "active" : ""}`}
+              onClick={() => handleSelect(option)}
+            >
+              {option}
+            </button>
+          ))}
         </div>
-    );
+
+        {selected && <p className="selected-display">Selected: {selected}</p>}
+
+        <button className="next-btn" onClick={handleNext}>Next</button>
+      </div>
+    </div>
+  );
 }
 
 export default Page6;
+
+
