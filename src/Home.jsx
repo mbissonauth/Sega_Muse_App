@@ -1,75 +1,57 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "./createClient";
+// Home.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from './createClient';
+import './Pages.css';
 
-import "./Pages.css";
-
-function Home() {
+const Home = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({ name: '', age: '' });
 
-  const [user, setUser] = useState({
-    name: "",
-    age: "",
-  });
+  const handleChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
-  async function createUser(e) {
+  const createUser = async (e) => {
     e.preventDefault();
 
     const { data, error } = await supabase
-      .from("users")
+      .from('users')
       .insert([{ name: user.name, age: user.age }])
       .select();
 
-    if (error) {
-      console.error("Error creating user:", error);
-      return;
-    }
+    if (error) return console.error('Error creating user:', error);
 
     const userId = data[0].id;
+    setUser({ name: '', age: '' });
 
-    // reset form
-    setUser({ name: "", age: "" });
-
-    // go to Page1 with new ID
-    navigate("/page1", { state: { userId } });
-  }
-
-  function handleChange(event) {
-    setUser({
-      ...user,
-      [event.target.name]: event.target.value,
-    });
-  }
+    navigate('/page1', { state: { userId } });
+  };
 
   return (
     <div className="app-container">
       <div className="form-card">
         <h2>User Info</h2>
-
         <form onSubmit={createUser}>
           <input
             type="text"
-            placeholder="Name"
             name="name"
+            placeholder="Name"
             value={user.name}
             onChange={handleChange}
             required
           />
-
           <input
             type="number"
-            placeholder="Age"
             name="age"
+            placeholder="Age"
             value={user.age}
             onChange={handleChange}
             required
           />
-
           <button type="submit">Next</button>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Home;

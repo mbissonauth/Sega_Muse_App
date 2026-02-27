@@ -77,7 +77,7 @@ function Page3() {
             className={answer === "yes" ? "answer-btn selected" : "answer-btn"}
             onClick={() => setAnswer("yes")}
           >
-            Yes, Sounds Robotic
+            Yes, Sounds AI-Generated
           </button>
 
           <button

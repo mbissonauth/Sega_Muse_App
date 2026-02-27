@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Page1 from "./Page1";
 import Page2 from "./Page2";
@@ -11,6 +12,7 @@ import React from "react";
 
 const App = () => {
   const navigate = useNavigate();
+  
   return (
     <Routes>
       <Route
