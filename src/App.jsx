@@ -11,6 +11,7 @@ import Page7 from "./Page7";
 import Page8 from "./Page8";
 import Page9 from "./Page9";
 import React from "react";
+import './Pages.css';
 
 const App = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const App = () => {
       <Route
         path="/"
         element={
-          <div className="app-container">
+          <div className="page-bg">
             <div className="form-card">
               <h2>Welcome to the AI Music Survey</h2>
 

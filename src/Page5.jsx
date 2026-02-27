@@ -58,7 +58,7 @@ function Page5() {
     };
 
     return (
-        <div className="app-container">
+        <div className="page-bg">
             <div className="form-card">
                 <h2>AI Music Evaluation Survey</h2>
                 <p className="question">Which one of these song do you think is AI generated?</p>

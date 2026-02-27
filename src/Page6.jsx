@@ -57,7 +57,7 @@ function Page6() {
   };
 
   return (
-    <div className="app-container">
+    <div className="page-bg">
       <div className="form-card">
         <h2>AI Music Evaluation Survey</h2>
         <p className="question">How realistic do the instruments sound in the music?</p>

@@ -57,7 +57,7 @@ function Page8() {
     };
 
     return (
-        <div className="app-container">
+        <div className="page-bg">
             <div className="form-card">
                 <h2>AI Music Evaluation Survey</h2>
                 <p>If you were a composer, would you consider using an AI tool to assist in composing music?</p>

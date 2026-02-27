@@ -57,7 +57,7 @@ function Page7() {
     };
 
     return (
-        <div className="app-container">
+        <div className="page-bg">
             <div className="form-card">
                 <h2>AI Music Evaluation Survey</h2>
                 <p className="question">On a scale of 1–5, how similar was the music to  Mauritian Sega music?</p>

@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <div className="app-container">
+    <div className="page-bg">
       <div className="form-card">
         <h2>User Info</h2>
         <form onSubmit={createUser}>

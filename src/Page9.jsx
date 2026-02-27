@@ -42,7 +42,7 @@ We appreciate your time!
     };
 
     return (
-        <div className="app-container">
+        <div className="page-bg">
             <div className="form-card">
                 <h2>🎉 Thank You for Completing the Survey!</h2>
                 <p className="thank-you-text">
