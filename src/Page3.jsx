@@ -60,13 +60,13 @@ function Page3() {
   return (
     <div className="page-bg">
       <div className="form-card">
-        <h2 className="title">Music Listening Test</h2>
+        <h2 className="title">AI Music Evaluation Survey</h2>
 
         <p className="question">Do you think this music sounds AI-generated or human-created?</p>
 
         <div className="audio-card">
           <div className="song-header">
-            <span className="song-title">Song Two</span>
+            <span className="song-title">Song 2</span>
             <span className="song-sub">Please listen before answering</span>
           </div>
           <audio controls controlsList="nodownload" src={song2} className="audio-player"></audio>

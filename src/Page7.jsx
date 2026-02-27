@@ -1,62 +1,90 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // import useLocation
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { supabase } from './createClient';
+import song3 from "./music/song3.wav";
 import './Pages.css';
 
 function Page7() {
     const navigate = useNavigate();
-    const location = useLocation(); 
-    const userId = location.state?.userId; // get userId from navigation state
+    const location = useLocation();
+    const userId = location.state?.userId; // get user id from Home
 
     if (!userId) {
-        console.warn("No user ID passed to Page7!");
+        console.error("No user ID passed to Page6!");
     }
 
-    // Retake survey
-    const handleRetake = () => {
-        navigate("/home");
+    const [selected, setSelected] = useState("");
+
+    const options = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+    ];
+
+    const handleSelect = (option) => {
+        setSelected(option); // always highlight selected button
     };
 
-    // Download document
-    const handleDownload = () => {
-        const content = `
-Thank you for participating in our AI Music Survey.
+    const handleNext = async () => {
+        if (!userId) {
+            alert("No user ID found!");
+            return;
+        }
 
-Your feedback helps improve AI-generated music research.
+        if (!selected) {
+            alert("Please select an option before continuing!");
+            return;
+        }
 
-We appreciate your time!
-        `;
+        // Update Supabase
+        const { data, error } = await supabase
+            .from('users')
+            .update({ isSega: selected })
+            .eq('id', userId);
 
-        const blob = new Blob([content], { type: "text/plain" });
-        const url = window.URL.createObjectURL(blob);
+        if (error) {
+            console.error("Error updating user:", error);
+            alert("Failed to save your answer. Try again.");
+            return;
+        }
 
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "AI_Music_Survey_ThankYou.txt";
-        a.click();
+        console.log("User updated:", data);
 
-        window.URL.revokeObjectURL(url);
+        // Navigate to Page2, pass userId along
+        navigate("/page8", { state: { userId } });
     };
 
     return (
         <div className="app-container">
             <div className="form-card">
-                <h2>🎉 Thank You for Completing the Survey!</h2>
-                <p className="thank-you-text">
-                    Your feedback helps us understand how people perceive AI-generated music.
-                    <br />
-                    We truly appreciate your time and thoughtful responses!
-                </p>
+                <h2>AI Music Evaluation Survey</h2>
+                <p className="question">On a scale of 1–5, how similar was the music to  Mauritian Sega music?</p>
+                <div className="song-header">
+                    <span className="song-title">song_up1</span>
+                    <audio controls controlsList="nodownload" src={song3} className="audio-player"></audio>
+                </div>
+                <div className="toggle-group">
+                    {options.map((option) => (
+                        <button
+                            key={option}
+                            className={`toggle-btn ${selected === option ? "active" : ""}`}
+                            onClick={() => handleSelect(option)}
+                        >
+                            {option}
+                        </button>
+                    ))}
+                </div>
 
-                <button className="next-btn" onClick={handleRetake}>
-                    Retake Survey
-                </button>
+                {selected && <p className="selected-display">Selected: {selected}</p>}
 
-                <button className="next-btn" onClick={handleDownload}>
-                    Download
-                </button>
+                <button className="next-btn" onClick={handleNext}>Next</button>
             </div>
         </div>
     );
 }
 
 export default Page7;
+
+

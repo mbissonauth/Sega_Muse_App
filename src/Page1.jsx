@@ -56,8 +56,8 @@ function Page1() {
   return (
     <div className="app-container">
       <div className="form-card">
-        <h2>Page 1</h2>
-        <p>Do you have any musical training or background?</p>
+        <h2>AI Music Evaluation Survey</h2>
+        <p className="question">Do you have any musical training or background?</p>
 
         <div className="toggle-group">
           {options.map((option) => (

@@ -42,10 +42,10 @@ function Page2() {
 
       <div className="form-card">
 
-        <h2 className="title">Music Listening Test</h2>
+        <h2 className="title">AI Music Evaluation Survey</h2>
 
         <p className="question">
-          How much do you enjoy this song?
+          How much do you enjoy this music?
         </p>
 
         {/* 🎵 Song */}

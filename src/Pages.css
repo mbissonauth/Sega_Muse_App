@@ -73,7 +73,7 @@
 }
 
 .rating-card.active {
-  background: linear-gradient(135deg, #6c63ff, #8a7dff);
+  background: #4f2a80;
   color: white;
   border: none;
   box-shadow: 0 10px 25px rgba(108,99,255,0.35);
@@ -92,7 +92,7 @@
 /* 🌈 Background */
 .page-bg {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f3f4ff, #e8ecff);
+  background: linear-gradient(135deg, #4d56bb, #882dac);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,4 +268,11 @@
 
 .page .image-question {
   width: 100%;
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #2b135f;
 }

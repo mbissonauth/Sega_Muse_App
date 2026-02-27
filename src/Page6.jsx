@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from './createClient';
+import song2 from "./music/song2.wav";
 import './Pages.css';
 
 function Page6() {
@@ -15,11 +16,11 @@ function Page6() {
   const [selected, setSelected] = useState("");
 
   const options = [
-    "Very similar",
-    "Somewhat similar",
+    "Very realistic",
+    "Somewhat realistic",
     "Neutral",
-    "Not very similar",
-    "Not similar at all"
+    "Not very realistic",
+    "Not realistic at all"
   ];
 
   const handleSelect = (option) => {
@@ -40,7 +41,7 @@ function Page6() {
     // Update Supabase
     const { data, error } = await supabase
       .from('users')
-      .update({ original: selected })
+      .update({ realistic_instrument: selected })
       .eq('id', userId);
 
     if (error) {
@@ -58,9 +59,12 @@ function Page6() {
   return (
     <div className="app-container">
       <div className="form-card">
-        <h2>Page 7</h2>
-        <p>How similar do you think the AI-generated music is to original Sega music?</p>
-
+        <h2>AI Music Evaluation Survey</h2>
+        <p className="question">How realistic do the instruments sound in the music?</p>
+        <div className="song-header">
+          <span className="song-title">Song Two</span>
+          <audio controls controlsList="nodownload" src={song2} className="audio-player"></audio>
+        </div>
         <div className="toggle-group">
           {options.map((option) => (
             <button

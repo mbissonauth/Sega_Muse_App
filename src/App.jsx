@@ -8,6 +8,8 @@ import Page4 from "./Page4";
 import Page5 from "./Page5";
 import Page6 from "./Page6";
 import Page7 from "./Page7";
+import Page8 from "./Page8";
+import Page9 from "./Page9";
 import React from "react";
 
 const App = () => {
@@ -59,6 +61,8 @@ const App = () => {
       <Route path="/page5" element={<Page5 />} />
       <Route path="/page6" element={<Page6 />} />
       <Route path="/page7" element={<Page7 />} />
+      <Route path="/page8" element={<Page8 />} />
+      <Route path="/page9" element={<Page9 />} />
     </Routes>
   );
 };
