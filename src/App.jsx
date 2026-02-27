@@ -1,4 +1,4 @@
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Home from "./Home";
 import Page1 from "./Page1";
@@ -38,7 +38,7 @@ const App = () => {
               <p className="intro-text">
                 The survey will take approximately 5–7 minutes to complete.
                 Please use headphones or good speakers for the best listening
-                experience.
+                experiences.
               </p>
 
               <button
