@@ -38,12 +38,12 @@ const App = () => {
               <p className="intro-text">
                 The survey will take approximately 5–7 minutes to complete.
                 Please use headphones or good speakers for the best listening
-                experiences.
+                experience.
               </p>
 
               <button
                 className="next-btn"
-                onClick={() => window.location.href = "/home"}
+                onClick={() => navigate("/home")}
               >
                 Start Survey
               </button>
