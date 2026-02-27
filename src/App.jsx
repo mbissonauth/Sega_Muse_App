@@ -10,6 +10,7 @@ import Page7 from "./Page7";
 import React from "react";
 
 const App = () => {
+  const navigate = useNavigate();
   return (
     <Routes>
       <Route
@@ -20,21 +21,21 @@ const App = () => {
               <h2>Welcome to the AI Music Survey</h2>
 
               <p className="intro-text">
-                This survey aims to explore how people perceive and evaluate 
-                AI-generated music compared to human-composed music. 
-                You will listen to several short music clips and rate them 
-                based on different aspects such as emotional impact, 
+                This survey aims to explore how people perceive and evaluate
+                AI-generated music compared to human-composed music.
+                You will listen to several short music clips and rate them
+                based on different aspects such as emotional impact,
                 musical quality, and overall preference.
                 <br /><br />
-                Your responses will help researchers better understand 
-                audience reactions to artificial intelligence in music creation. 
-                All responses are anonymous and will only be used for academic 
+                Your responses will help researchers better understand
+                audience reactions to artificial intelligence in music creation.
+                All responses are anonymous and will only be used for academic
                 research purposes.
               </p>
 
               <p className="intro-text">
-                The survey will take approximately 5–7 minutes to complete. 
-                Please use headphones or good speakers for the best listening 
+                The survey will take approximately 5–7 minutes to complete.
+                Please use headphones or good speakers for the best listening
                 experience.
               </p>
 
